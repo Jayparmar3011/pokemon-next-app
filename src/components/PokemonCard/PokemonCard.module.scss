@@ -1,0 +1,46 @@
+.card {
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: rgba(26, 26, 26, 0.75);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  h3 {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.image {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .image {
+    width: 72px;
+    height: 72px;
+  }
+}

@@ -1,0 +1,24 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-md);
+  background: rgba(26, 26, 26, 0.7);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  text-transform: capitalize;
+
+  &:hover {
+    background: var(--surface-hover);
+    border-color: rgba(99, 102, 241, 0.35);
+    transform: translateX(4px);
+  }
+}
+
+.image {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}

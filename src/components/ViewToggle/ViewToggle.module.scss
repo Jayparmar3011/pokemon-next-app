@@ -1,0 +1,39 @@
+.toggle {
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px;
+  margin: 22px 0;
+  border-radius: 14px;
+  background: rgba(26, 26, 26, 0.7);
+  border: 1px solid var(--border);
+}
+
+.toggle button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-secondary);
+
+  &:hover {
+    color: white;
+  }
+}
+
+.active {
+  background: var(--accent);
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toggle button {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
