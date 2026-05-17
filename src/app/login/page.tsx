@@ -15,7 +15,6 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-   
     if (username === "admin" && password === "1234") {
       localStorage.setItem("auth-token", "demo-user");
       router.push("/dashboard");
@@ -24,10 +23,9 @@ export default function LoginPage() {
     }
   };
 
-  
   return (
     <main className={styles.container}>
-      <div className={styles.backgroundGlow} />
+      <div className={styles.backgroundColor} />
 
       <div className={styles.loginCard}>
         <h1 className={styles.title}>Welcome Back</h1>
