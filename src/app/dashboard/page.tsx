@@ -13,6 +13,7 @@ import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { getPokemons } from "@/redux/slices/pokemonSlice";
 import styles from "./page.module.scss";
+import { GRID_VIEW, LIST_VIEW } from "@/types/pokemon";
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
@@ -45,8 +46,8 @@ export default function HomePage() {
           <ViewToggle />
           {error && <ErrorState message={error} />}
           <div className={styles.pokemonWrapper}>
-            {viewMode === "grid" && <PokemonGrid />}
-            {viewMode === "list" && <PokemonList />}
+            {viewMode === GRID_VIEW && <PokemonGrid />}
+            {viewMode === LIST_VIEW && <PokemonList />}
             {loading && <Loader />}
           </div>
           <Pagination />

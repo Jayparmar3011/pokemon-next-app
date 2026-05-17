@@ -4,11 +4,8 @@ import React, { useEffect, useCallback } from "react";
 import styles from "./Sidebar.module.scss";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { getTypes } from "@/redux/slices/typeSlice";
-import {
-  setSelectedType,
-  setPage,
-  getPokemons,
-} from "@/redux/slices/pokemonSlice";
+import { setSelectedType, setPage } from "@/redux/slices/pokemonSlice";
+import { ALL_TYPE, Pokemon } from "@/types/pokemon";
 
 const Sidebar = () => {
   const dispatch = useAppDispatch();
@@ -29,19 +26,19 @@ const Sidebar = () => {
       <h2>Pokemon Types</h2>
 
       <button
-        className={selectedType === "all" ? styles.active : ""}
-        onClick={() => handleTypeClick("all")}
+        className={selectedType === ALL_TYPE ? styles.active : ""}
+        onClick={() => handleTypeClick(ALL_TYPE)}
       >
         All
       </button>
 
-      {types.map((type: any) => (
+      {types.map((type: Pokemon) => (
         <button
-          key={type.name}
-          className={selectedType === type.name ? styles.active : ""}
-          onClick={() => handleTypeClick(type.name)}
+          key={type?.name}
+          className={selectedType === type?.name ? styles.active : ""}
+          onClick={() => handleTypeClick(type?.name)}
         >
-          {type.name}
+          {type?.name}
         </button>
       ))}
     </aside>

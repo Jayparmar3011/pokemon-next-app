@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 import { fetchPokemonList, fetchPokemonByType } from "@/services/pokemonApi";
+import { ABORT_ERROR, ALL_TYPE, Pokemon } from "@/types/pokemon";
 
 interface PokemonState {
-  pokemons: any[];
+  pokemons: Pokemon[];
   loading: boolean;
   error: string | null;
   selectedType: string;
@@ -23,7 +23,7 @@ export const getPokemons = createAsyncThunk(
     },
     { signal },
   ) => {
-    if (type === "all") {
+    if (type === ALL_TYPE) {
       return await fetchPokemonList(20, page * 20, signal);
     }
 
@@ -35,7 +35,7 @@ const initialState: PokemonState = {
   pokemons: [],
   loading: true,
   error: null,
-  selectedType: "all",
+  selectedType: ALL_TYPE,
   page: 0,
   totalCount: 0,
 };
@@ -67,7 +67,9 @@ const pokemonSlice = createSlice({
           state.pokemons = action?.payload?.results;
           state.totalCount = action?.payload?.count;
         } else {
-          state.pokemons = action?.payload?.pokemon.map((p: any) => p.pokemon);
+          state.pokemons = action?.payload?.pokemon.map(
+            (p: { pokemon: Pokemon }) => p.pokemon,
+          );
           state.totalCount = action?.payload?.pokemon.length;
         }
       })
@@ -75,7 +77,7 @@ const pokemonSlice = createSlice({
       .addCase(getPokemons?.rejected, (state, action) => {
         state.loading = false;
 
-        if (action?.error?.name !== "AbortError") {
+        if (action?.error?.name !== ABORT_ERROR) {
           state.error = "Failed to fetch Pokémon";
         }
       });

@@ -23,3 +23,8 @@ export interface PokemonState {
   total: number;
   selectedType: string;
 }
+
+export const ALL_TYPE = "all";
+export const GRID_VIEW = "grid";
+export const LIST_VIEW = "list";
+export const ABORT_ERROR = "AbortError";
