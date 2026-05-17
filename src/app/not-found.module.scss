@@ -1,0 +1,47 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: 24px;
+}
+
+.card {
+  text-align: center;
+  padding: 48px;
+  border-radius: 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+  h1 {
+    font-size: 80px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
